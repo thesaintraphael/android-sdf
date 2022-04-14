@@ -45,18 +45,17 @@ class  Category (name: String, color_code: ColorCode) {
     fun activate() {
 
         if(this.active){
-            if(active_categories_count < 3) {
-                active = true
-                active_categories_count++
-            }
-
-            else{
-                throw Exception("You can't have more than 3 active categories")
-            }
+            throw Exception("Category is already active")
         }
 
-        throw Exception("Category is already active")
+        if(active_categories_count < 3) {
+            active = true
+            active_categories_count++
+        }
 
+        else{
+            throw Exception("You can't have more than 3 active categories")
+        }
     }
 
     fun deactivate() {
